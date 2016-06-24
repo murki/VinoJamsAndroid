@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 public class SongListActivity extends AppCompatActivity {
+
+    private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,8 @@ public class SongListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                StorageReference storageRef = firebaseStorage.getReferenceFromUrl("gs://project-8042746893150109988.appspot.com/");
+                Snackbar.make(view, storageRef.child("Come Thou fount of Every Blessing.mp3").getBucket(), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
