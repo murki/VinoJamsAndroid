@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "478849501323",
+    "firebase_url": "https://project-8042746893150109988.firebaseio.com",
+    "project_id": "project-8042746893150109988",
+    "storage_bucket": "project-8042746893150109988.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478849501323:android:fed18ae5b6fd0123",
+        "android_client_info": {
+          "package_name": "com.murki.vinojams"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478849501323-fufmvphgivrc0ogp7u0esa1kuvpgv6v1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.murki.vinojams",
+            "certificate_hash": "E562DA28A8FFE4DCEC785F1A8EC6F965477A1C93"
+          }
+        },
+        {
+          "client_id": "478849501323-m0p5vrgen5qhe18dejj08vuulfiqhvok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAZ9202Ii2HGshGjMjJlee5-w7pfHFbxc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478849501323-m0p5vrgen5qhe18dejj08vuulfiqhvok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
