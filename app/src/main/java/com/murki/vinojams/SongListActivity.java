@@ -15,10 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -59,18 +57,16 @@ public class SongListActivity extends AppCompatActivity {
         };
 
         // authenticate
-        firebaseAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.signInAnonymously().addOnSuccessListener(this, new OnSuccessListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Log.d(CLASSNAME, "signInAnonymously:onComplete:" + task.isSuccessful());
-
-                // If sign in fails, display a message to the user. If sign in succeeds
-                // the auth state listener will be notified and logic to handle the
-                // signed in user can be handled in the listener.
-                if (!task.isSuccessful()) {
-                    Log.w(CLASSNAME, "signInAnonymously", task.getException());
-                    Toast.makeText(SongListActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                }
+            public void onSuccess(AuthResult authResult) {
+                Log.d(CLASSNAME, "signInAnonymously:onComplete:");
+            }
+        }).addOnFailureListener(this, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(CLASSNAME, "signInAnonymously", e);
+                Toast.makeText(SongListActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -98,7 +94,6 @@ public class SongListActivity extends AppCompatActivity {
             public void onClick(final View view) {
                 try {
                     mediaPlayer.setDataSource(pathToSong.toString());
-//                    mediaPlayer.setDataSource("https://firebasestorage.googleapis.com/v0/b/project-8042746893150109988.appspot.com/o/Come%20Thou%20fount%20of%20Every%20Blessing.mp3?alt=media&token=988cb528-9d09-400c-a9c5-27145bfab3a2");
                     mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
                         @Override
                         public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
